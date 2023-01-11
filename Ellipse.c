@@ -23,20 +23,19 @@ p1o=pow(ry,2)-(pow(rx,2)*ry)+(0.25*pow(rx,2));
  if(p1o<0)
  {
   x=x+1;
-  y=y;
-  p1o=p1o+2*pow(ry,2)*x+pow(ry,2);
+  p1o=p1o+2*pow(ry,2)*x +2*pow(ry,2)+pow(ry,2);
  }
  else
  {
   x=x+1;
-  y=y+1;
+  y--;
   p1o=p1o+2*pow(ry,2)*x+2*pow(ry,2)-2*pow(rx,2)*y+2*pow(rx,2)+pow(ry,2);
  }
- putpixel(xc+x,yc+y);
- putpixel(xc-x,yc-y);
- putpixel(xc-x,yc+y);
- putpixel(xc+x,yc-y);
- }while(2*pow(ry,2)*x>2*pow(rx,2)*y);
+ putpixel(xc+x,yc+y,15);
+ putpixel(xc-x,yc-y,15);
+ putpixel(xc-x,yc+y,15);
+ putpixel(xc+x,yc-y,15);
+ }while((2*pow(ry,2)*x) < (2*pow(rx,2)*y));
  //Parameter for region 2
   p2o=pow(ry,2)*pow((x+0.5),2)+pow(rx,2)*pow((y-1),2)-pow(rx,2)*pow(ry,2);
   while(y>0){
@@ -44,17 +43,17 @@ p1o=pow(ry,2)-(pow(rx,2)*ry)+(0.25*pow(rx,2));
   {
    x=x;
    y=y-1;
-   p2o=p2o-2*pow(rx,2)*y+pow(rx,2);
+   p2o=p2o-2*pow(rx,2)*y+ 2* pow(rx,2)+pow(rx,2);
   }
   else{
    x=x+1;
-   y=y+1;
+   y--;
    p2o=p2o+2*pow(ry,2)*x+2*pow(ry,2)-2*pow(rx,2)*y+2*pow(ry,2)+pow(rx,2);
   }
- putpixel(xc+x,yc+y);
- putpixel(xc-x,yc-y);
- putpixel(xc-x,yc+y);
- putpixel(xc+x,yc-y);
+ putpixel(xc+x,yc+y,15);
+ putpixel(xc-x,yc-y,15);
+ putpixel(xc-x,yc+y,15);
+ putpixel(xc+x,yc-y,15);
   }
   getch();
   closegraph();
